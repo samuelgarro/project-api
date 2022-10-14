@@ -1,16 +1,22 @@
 package com.unvime.projectapi.controller;
 
 import com.unvime.projectapi.models.dto.StoryDTO;
+import com.unvime.projectapi.models.dto.TaskDTO;
 import com.unvime.projectapi.services.IStoryService;
+import com.unvime.projectapi.services.ITaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/project/{projectId}/epic/{epicId}/story")
+@RequestMapping("/stories")
 public class StoryController {
     @Autowired
     private IStoryService service;
+    @Autowired
+    private ITaskService taskService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -36,4 +42,9 @@ public class StoryController {
         service.deleteStory(id);
     }
 
+    @GetMapping("/{id}/tasks")
+    @ResponseStatus(HttpStatus.OK)
+    public List<TaskDTO> getTasks(@PathVariable("id") long id) {
+        return taskService.findTaskByStory(id);
+    }
 }
