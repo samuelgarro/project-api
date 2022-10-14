@@ -1,6 +1,7 @@
 package com.unvime.projectapi.services.impl;
 
 import com.unvime.projectapi.exceptions.NotFoundException;
+import com.unvime.projectapi.models.dto.EpicDTO;
 import com.unvime.projectapi.models.dto.ProjectDTO;
 import com.unvime.projectapi.models.entity.Project;
 import com.unvime.projectapi.repository.IProjectRepository;
@@ -8,6 +9,8 @@ import com.unvime.projectapi.services.IProjectService;
 import com.unvime.projectapi.utils.MapperUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProjectServiceImpl implements IProjectService {
@@ -47,5 +50,10 @@ public class ProjectServiceImpl implements IProjectService {
     public ProjectDTO getProject(long id) {
         Project project = repository.findById(id).orElseThrow(NotFoundException::new);
         return MapperUtils.map(project, ProjectDTO.class);
+    }
+
+    @Override
+    public List<ProjectDTO> findAll() {
+        return MapperUtils.mapList(repository.findAll(), ProjectDTO.class);
     }
 }

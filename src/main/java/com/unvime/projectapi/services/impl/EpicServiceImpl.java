@@ -66,4 +66,9 @@ public class EpicServiceImpl implements IEpicService {
         var epics = repository.findByProjectId(id);
         return MapperUtils.mapList(epics, EpicDTO.class);
     }
+
+    @Override
+    public List<EpicDTO> findAll() {
+        return MapperUtils.mapList(repository.findAll(), EpicDTO.class);
+    }
 }

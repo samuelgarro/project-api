@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0a728d73-44f5-4653-8fc0-e2baa1b93468" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/EpicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/EpicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/StoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/StoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/services/IEpicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/services/IEpicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/services/IProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/services/IProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/services/IStoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/services/IStoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/services/ITaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/services/ITaskService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

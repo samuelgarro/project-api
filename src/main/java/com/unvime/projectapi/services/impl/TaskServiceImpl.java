@@ -1,6 +1,7 @@
 package com.unvime.projectapi.services.impl;
 
 import com.unvime.projectapi.exceptions.NotFoundException;
+import com.unvime.projectapi.models.dto.StoryDTO;
 import com.unvime.projectapi.models.dto.TaskDTO;
 import com.unvime.projectapi.models.entity.Task;
 import com.unvime.projectapi.repository.ITaskRepository;
@@ -65,5 +66,10 @@ public class TaskServiceImpl implements ITaskService {
     public List<TaskDTO> findTaskByStory(long id) {
         var tasks = repository.findByStoryId(id);
         return MapperUtils.mapList(tasks, TaskDTO.class);
+    }
+
+    @Override
+    public List<TaskDTO> findAll() {
+        return MapperUtils.mapList(repository.findAll(), TaskDTO.class);
     }
 }
