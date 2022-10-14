@@ -1,16 +1,22 @@
 package com.unvime.projectapi.controller;
 
+import com.unvime.projectapi.models.dto.EpicDTO;
 import com.unvime.projectapi.models.dto.ProjectDTO;
+import com.unvime.projectapi.services.IEpicService;
 import com.unvime.projectapi.services.IProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/project")
+@RequestMapping("/projects")
 public class ProjectController {
     @Autowired
     private IProjectService service;
+    @Autowired
+    private IEpicService epicService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -36,4 +42,9 @@ public class ProjectController {
         service.deleteProject(id);
     }
 
+    @GetMapping("/{id}/epics")
+    @ResponseStatus(HttpStatus.OK)
+    public List<EpicDTO> getEpics(@PathVariable long id) {
+        return epicService.findEpicByProject(id);
+    }
 }

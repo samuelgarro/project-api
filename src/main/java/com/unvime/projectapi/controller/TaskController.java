@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/project/{projectId}/epic/{epicId}/story/{storyId}/task")
+@RequestMapping("/tasks")
 public class TaskController {
     @Autowired
     private ITaskService service;

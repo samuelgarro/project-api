@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a728d73-44f5-4653-8fc0-e2baa1b93468" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/EpicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/EpicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/StoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unvime/projectapi/controller/StoryController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,7 @@
   <component name="RunManager" selected="Application.ProjectApiApplication">
     <configuration name="ProjectApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.unvime.projectapi.ProjectApiApplication" />
-      <module name="project-api" />
+      <module name="projectapi" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.unvime.projectapi.*" />
