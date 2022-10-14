@@ -30,6 +30,12 @@ public class ProjectController {
         return service.getProject(id);
     }
 
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<ProjectDTO> findAll() {
+        return service.findAll();
+    }
+
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ProjectDTO update(@PathVariable long id, @RequestBody ProjectDTO dto) {

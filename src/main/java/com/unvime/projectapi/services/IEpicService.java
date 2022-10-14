@@ -10,4 +10,5 @@ public interface IEpicService {
     void deleteEpic(long id);
     EpicDTO getEpic(long id);
     List<EpicDTO> findEpicByProject(long id);
+    List<EpicDTO> findAll();
 }

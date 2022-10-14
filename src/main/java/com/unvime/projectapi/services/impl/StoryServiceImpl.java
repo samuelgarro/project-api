@@ -68,4 +68,9 @@ public class StoryServiceImpl implements IStoryService {
         var stories = repository.findByEpicId(id);
         return MapperUtils.mapList(stories, StoryDTO.class);
     }
+
+    @Override
+    public List<StoryDTO> findAll() {
+        return MapperUtils.mapList(repository.findAll(), StoryDTO.class);
+    }
 }

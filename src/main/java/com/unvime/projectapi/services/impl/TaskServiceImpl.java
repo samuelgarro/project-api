@@ -66,4 +66,9 @@ public class TaskServiceImpl implements ITaskService {
         var tasks = repository.findByStoryId(id);
         return MapperUtils.mapList(tasks, TaskDTO.class);
     }
+
+    @Override
+    public List<TaskDTO> findAll() {
+        return MapperUtils.mapList(repository.findAll(), TaskDTO.class);
+    }
 }
