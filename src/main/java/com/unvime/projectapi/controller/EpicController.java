@@ -30,6 +30,12 @@ public class EpicController {
         return service.getEpic(id);
     }
 
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<EpicDTO> findAll() {
+        return service.findAll();
+    }
+
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public EpicDTO update(@PathVariable("projectId") long projectId, @PathVariable("id") long id, @RequestBody EpicDTO dto) {

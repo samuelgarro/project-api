@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
@@ -22,6 +24,12 @@ public class TaskController {
     @ResponseStatus(HttpStatus.OK)
     public TaskDTO get(@PathVariable("id") long id) {
         return service.getTask(id);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<TaskDTO> findAll() {
+        return service.findAll();
     }
 
     @PutMapping("/{id}")

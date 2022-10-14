@@ -30,6 +30,12 @@ public class StoryController {
         return service.getStory(id);
     }
 
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<StoryDTO> findAll() {
+        return service.findAll();
+    }
+
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public StoryDTO update(@PathVariable("epicId") long epicId, @PathVariable("id") long id, @RequestBody StoryDTO dto) {

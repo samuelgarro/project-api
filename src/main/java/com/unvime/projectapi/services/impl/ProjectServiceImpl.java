@@ -1,7 +1,6 @@
 package com.unvime.projectapi.services.impl;
 
 import com.unvime.projectapi.exceptions.NotFoundException;
-import com.unvime.projectapi.models.dto.EpicDTO;
 import com.unvime.projectapi.models.dto.ProjectDTO;
 import com.unvime.projectapi.models.entity.Project;
 import com.unvime.projectapi.repository.IProjectRepository;
