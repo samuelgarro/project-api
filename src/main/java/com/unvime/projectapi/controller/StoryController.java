@@ -6,6 +6,7 @@ import com.unvime.projectapi.services.IStoryService;
 import com.unvime.projectapi.services.ITaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class StoryController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public StoryDTO create(@PathVariable("epicId") long epicId, @RequestBody StoryDTO dto) {
+    public StoryDTO create(@PathVariable("epicId") long epicId, @Validated @RequestBody StoryDTO dto) {
         return service.createStory(dto, epicId);
     }
 

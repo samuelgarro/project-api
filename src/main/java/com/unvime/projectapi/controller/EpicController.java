@@ -6,6 +6,7 @@ import com.unvime.projectapi.services.IEpicService;
 import com.unvime.projectapi.services.IStoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class EpicController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EpicDTO create(@PathVariable("projectId") long projectId, @RequestBody EpicDTO dto) {
+    public EpicDTO create(@PathVariable("projectId") long projectId, @Validated @RequestBody EpicDTO dto) {
         return service.createEpic(dto, projectId);
     }
 

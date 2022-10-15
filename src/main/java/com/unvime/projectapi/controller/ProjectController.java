@@ -6,6 +6,7 @@ import com.unvime.projectapi.services.IEpicService;
 import com.unvime.projectapi.services.IProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class ProjectController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProjectDTO create(@RequestBody ProjectDTO dto) {
+    public ProjectDTO create(@Validated @RequestBody ProjectDTO dto) {
         return service.createProject(dto);
     }
 

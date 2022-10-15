@@ -4,6 +4,7 @@ import com.unvime.projectapi.models.dto.TaskDTO;
 import com.unvime.projectapi.services.ITaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class TaskController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public TaskDTO create(@PathVariable("storyId") long storyId, @RequestBody TaskDTO dto) {
+    public TaskDTO create(@PathVariable("storyId") long storyId, @Validated @RequestBody TaskDTO dto) {
         return service.createTask(dto, storyId);
     }
 
