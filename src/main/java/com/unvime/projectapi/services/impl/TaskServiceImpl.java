@@ -41,6 +41,7 @@ public class TaskServiceImpl implements ITaskService {
         long storyId = dto.getStory().getId();
 
         task.setName(dto.getName());
+        task.setCompleted(dto.isCompleted());
 
         if (task.getStoryId() != storyId) {
             storyService.getStory(storyId); // verifica si existe
