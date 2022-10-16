@@ -2,11 +2,13 @@ package com.unvime.projectapi.services.impl;
 
 import com.unvime.projectapi.config.JWTAuthorization;
 import com.unvime.projectapi.exceptions.LoginException;
+import com.unvime.projectapi.exceptions.NotFoundException;
 import com.unvime.projectapi.models.dto.TokenDTO;
 import com.unvime.projectapi.models.dto.UserDTO;
 import com.unvime.projectapi.models.entity.User;
 import com.unvime.projectapi.repository.IUserRepository;
 import com.unvime.projectapi.services.IUserService;
+import com.unvime.projectapi.utils.MapperUtils;
 import com.unvime.projectapi.utils.Roles;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -26,16 +28,8 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public TokenDTO login(UserDTO dto) {
-        //User user = repository.findByUsername(dto.getUsername());
-        User user = new User();
-        user.setId(1L);
-        user.setUsername("samuel");
-        user.setPassword("Pepe");
-        user.setRol(Roles.ROLE_ADMIN);
-
-        // si no existe el username
+        User user = repository.findByUsername(dto.getUsername());
         if (user == null) throw new LoginException();
-        // si la contraseña es erronea
         if (!user.getPassword().equals(dto.getPassword())) throw new LoginException();
 
         return new TokenDTO(getToken(user));
@@ -63,11 +57,17 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public UserDTO get(long id) {
-        return null;
+        var user =  repository.findById(id).orElseThrow(NotFoundException::new);
+        var dto = MapperUtils.map(user, UserDTO.class);
+        dto.setPassword(null);
+        return dto;
     }
 
     @Override
     public List<UserDTO> findAll() {
-        return null;
+        var users =  repository.findAll();
+        var result = MapperUtils.mapList(users, UserDTO.class);
+        result.forEach(dto -> dto.setPassword(null));
+        return result;
     }
 }
