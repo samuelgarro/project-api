@@ -21,8 +21,9 @@ public class StoryServiceImpl implements IStoryService {
     private IEpicService epicService;
 
     @Override
-    public StoryDTO createStory(StoryDTO dto, long epicId) {
+    public StoryDTO createStory(StoryDTO dto) {
         Story story = MapperUtils.map(dto, Story.class);
+        long epicId = dto.getEpic().getId();
 
         epicService.getEpic(epicId); // verifica si existe
         story.setId(repository.count() + 1);
@@ -34,14 +35,12 @@ public class StoryServiceImpl implements IStoryService {
     }
 
     @Override
-    public StoryDTO updateStory(StoryDTO dto, long id, long epicId) {
+    public StoryDTO updateStory(StoryDTO dto, long id) {
         var story = repository.findById(id).orElseThrow(NotFoundException::new);
+        long epicId = dto.getEpic().getId();
 
-        if (dto.getName() != null && !dto.getName().isBlank())
-            story.setName(dto.getName());
-
-        if (dto.getDescription() != null && !dto.getDescription().isBlank())
-            story.setDescription(dto.getDescription());
+        story.setName(dto.getName());
+        story.setDescription(dto.getDescription());
 
         if (story.getEpicId() != epicId) {
             epicService.getEpic(epicId); // verifica si existe

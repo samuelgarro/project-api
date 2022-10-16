@@ -21,8 +21,8 @@ public class EpicController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EpicDTO create(@PathVariable("projectId") long projectId, @Validated @RequestBody EpicDTO dto) {
-        return service.createEpic(dto, projectId);
+    public EpicDTO create(@Validated @RequestBody EpicDTO dto) {
+        return service.createEpic(dto);
     }
 
     @GetMapping("/{id}")
@@ -39,8 +39,8 @@ public class EpicController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public EpicDTO update(@PathVariable("projectId") long projectId, @PathVariable("id") long id, @RequestBody EpicDTO dto) {
-        return service.updateEpic(dto, id, projectId);
+    public EpicDTO update(@PathVariable("id") long id, @Validated @RequestBody EpicDTO dto) {
+        return service.updateEpic(dto, id);
     }
 
     @DeleteMapping("/{id}")

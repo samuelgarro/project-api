@@ -21,8 +21,9 @@ public class EpicServiceImpl implements IEpicService {
     private IProjectService projectService;
 
     @Override
-    public EpicDTO createEpic(EpicDTO dto, long projectId) {
+    public EpicDTO createEpic(EpicDTO dto) {
         Epic epic = MapperUtils.map(dto, Epic.class);
+        long projectId = dto.getProject().getId();
 
         projectService.getProject(projectId); // verifica si existe
         epic.setId(repository.count() + 1);
@@ -35,11 +36,11 @@ public class EpicServiceImpl implements IEpicService {
     }
 
     @Override
-    public EpicDTO updateEpic(EpicDTO dto, long id, long projectId) {
+    public EpicDTO updateEpic(EpicDTO dto, long id) {
         var epic = repository.findById(id).orElseThrow(NotFoundException::new);
+        long projectId = dto.getProject().getId();
 
-        if (dto.getName() != null && !dto.getName().isBlank())
-            epic.setName(dto.getName());
+        epic.setName(dto.getName());
 
         if (epic.getProjectId() != projectId) {
             projectService.getProject(projectId); // verifica si existe

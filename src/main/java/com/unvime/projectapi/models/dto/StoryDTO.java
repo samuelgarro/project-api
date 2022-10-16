@@ -1,17 +1,20 @@
 package com.unvime.projectapi.models.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class StoryDTO {
     private Long id;
     @NotBlank(message = "Debe contener un nombre")
@@ -20,4 +23,6 @@ public class StoryDTO {
     @NotBlank(message = "Debe contener una descripción")
     @Size(min = 10, max = 50, message = "La descripción debe tener entre 10 a 50 caracteres")
     private String description;
+    @NotNull(message = "Debe enviar el id de la epica al que pertenece esta historia")
+    private EpicDTO epic;
 }
