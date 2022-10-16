@@ -21,8 +21,8 @@ public class StoryController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public StoryDTO create(@PathVariable("epicId") long epicId, @Validated @RequestBody StoryDTO dto) {
-        return service.createStory(dto, epicId);
+    public StoryDTO create(@Validated @RequestBody StoryDTO dto) {
+        return service.createStory(dto);
     }
 
     @GetMapping("/{id}")
@@ -39,8 +39,8 @@ public class StoryController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public StoryDTO update(@PathVariable("epicId") long epicId, @PathVariable("id") long id, @RequestBody StoryDTO dto) {
-        return service.updateStory(dto, id, epicId);
+    public StoryDTO update(@PathVariable("id") long id, @Validated @RequestBody StoryDTO dto) {
+        return service.updateStory(dto, id);
     }
 
     @DeleteMapping("/{id}")

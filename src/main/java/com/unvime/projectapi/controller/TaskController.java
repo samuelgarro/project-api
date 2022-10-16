@@ -17,8 +17,8 @@ public class TaskController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public TaskDTO create(@PathVariable("storyId") long storyId, @Validated @RequestBody TaskDTO dto) {
-        return service.createTask(dto, storyId);
+    public TaskDTO create(@Validated @RequestBody TaskDTO dto) {
+        return service.createTask(dto);
     }
 
     @GetMapping("/{id}")
@@ -35,8 +35,8 @@ public class TaskController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public TaskDTO update(@PathVariable("storyId") long storyId, @PathVariable("id") long id, @RequestBody TaskDTO dto) {
-        return service.updateTask(dto, id, storyId);
+    public TaskDTO update(@PathVariable("id") long id, @Validated @RequestBody TaskDTO dto) {
+        return service.updateTask(dto, id);
     }
 
     @DeleteMapping("/{id}")

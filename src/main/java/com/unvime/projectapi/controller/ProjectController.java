@@ -39,7 +39,7 @@ public class ProjectController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ProjectDTO update(@PathVariable long id, @RequestBody ProjectDTO dto) {
+    public ProjectDTO update(@PathVariable long id, @Validated @RequestBody ProjectDTO dto) {
         return service.updateProject(dto, id);
     }
 

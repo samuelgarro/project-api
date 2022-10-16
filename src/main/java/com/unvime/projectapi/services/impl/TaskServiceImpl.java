@@ -21,8 +21,9 @@ public class TaskServiceImpl implements ITaskService {
     private IStoryService storyService;
 
     @Override
-    public TaskDTO createTask(TaskDTO dto, long storyId) {
+    public TaskDTO createTask(TaskDTO dto) {
         Task task = MapperUtils.map(dto, Task.class);
+        long storyId = dto.getStory().getId();
 
         storyService.getStory(storyId); // verifica si existe
         task.setId(repository.count() + 1);
@@ -35,11 +36,11 @@ public class TaskServiceImpl implements ITaskService {
     }
 
     @Override
-    public TaskDTO updateTask(TaskDTO dto, long id, long storyId) {
+    public TaskDTO updateTask(TaskDTO dto, long id) {
         var task = repository.findById(id).orElseThrow(NotFoundException::new);
+        long storyId = dto.getStory().getId();
 
-        if (dto.getName() != null && !dto.getName().isBlank())
-            task.setName(dto.getName());
+        task.setName(dto.getName());
 
         if (task.getStoryId() != storyId) {
             storyService.getStory(storyId); // verifica si existe
