@@ -46,7 +46,7 @@ public class ExceptionController {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     public ApiException hadler(Exception e) {
-        log.error("unexpected exception: " + Arrays.toString(e.getStackTrace()));
+        log.error(e.getStackTrace());
         return new ApiException("internal_server_error", "Unexpected exception", HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
 }
