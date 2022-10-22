@@ -14,8 +14,14 @@
     <name>project api</name>
     <description>Api for management project</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
+    <packaging>jar</packaging>
+    <build>
+        <finalName>application</finalName>
+    </build>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
