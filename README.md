@@ -19,7 +19,7 @@ mvn package
 2. Execute jar created
 <pre>java -jar target/application.jar</pre>
 3. For check if api up, run next curl or open browser with url
-<pre>curl --location --request GET 'http://localhost:8080/hello</pre>
+<pre>curl -X GET localhost:8080/hello</pre>
 4. Ready to use.
 
 ### Connect to db ###
